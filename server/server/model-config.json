@@ -33,5 +33,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Thread": {
+    "dataSource": "chmail",
+    "public": true
   }
 }

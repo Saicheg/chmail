@@ -1,0 +1,29 @@
+{
+  "name": "Thread",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "String"
+    },
+    "subject": {
+      "type": "String"
+    },
+    "snippet": {
+      "type": "String"
+    },
+    "historyId": {
+      "type": "String"
+    },
+    "messages": {
+      "type": ["String"]
+    },
+    "members": {
+      "type": ["String"]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
