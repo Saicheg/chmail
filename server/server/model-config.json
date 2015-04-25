@@ -7,31 +7,31 @@
     ]
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": true
   },
   "accessToken": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": true
   },
   "userCredential": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": true
   },
   "userIdentity": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": true
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "chmail",
     "public": false
   },
   "Thread": {
