@@ -1,0 +1,26 @@
+<div class="left_block">
+    <div class="list-group">
+        <% if(currentPage == 'account') { %>
+        <a href='#' class="mark_box list-group-item active">
+            Account Settings
+        </a>
+        <a href='/account/billing' class="mark_box list-group-item">
+            Billing
+        </a>
+        <% } else if(currentPage == 'account_companies') { %>
+        <a href='/account' class="mark_box list-group-item">
+            Account Settings
+        </a>
+        <a href='/account/billing' class="mark_box list-group-item">
+            Billing
+        </a>
+        <% } else if(currentPage == 'account_billing') { %>
+        <a href='/account' class="mark_box list-group-item">
+            Account Settings
+        </a>
+        <a href='#' class="mark_box list-group-item active">
+            Billing
+        </a>
+        <% } %>
+    </div>
+</div>

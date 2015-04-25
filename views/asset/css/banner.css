@@ -1,0 +1,22 @@
+.temp_image{
+	float:left;
+	border: 1px solid grey;
+	margin: 5px;
+}
+.offer_input{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	width: 500px;
+}
+.left-banner{
+    font-family: 'Open Sans', arial;
+  -webkit-font-smoothing: antialiased;
+  color: #555;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+}
+.click-to-edit {
+    display: inline-block;
+}

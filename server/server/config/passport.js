@@ -1,5 +1,5 @@
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
+var persistedModel = new require('loopback').PersistedModel;
 var configAuth = require('./auth');
 
 // expose this function to our app using module.exports
@@ -15,7 +15,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        PersistedModel.findById(id, function(err, instance){
+        persistedModel.findById(id, function(err, instance){
             done(err, instance);
         });
     });
@@ -37,7 +37,7 @@ module.exports = function(passport) {
                 newUser.name = profile.displayName;
                 newUser.email = profile.emails[0].value;
 
-                PersistedModel.findOrCreate({'where': {'google_id': profile.id}}, newUser, function (err, instance) {
+                persistedModel.findOrCreate({'where': {'google_id': profile.id}}, newUser, function (err, instance) {
                     if (err) {
                         return done(err);
                     }

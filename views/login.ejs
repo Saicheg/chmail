@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include _head %>
+<body>
+<div class="container">
+<h2 class="form-signin-heading banner">Sign in to continue to AdSelf</h2>
+    <form class="form-signin" action="/login" method="post">
+        <div class="card signin-card">
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+            <input class="form-control" placeholder="Email" required="" autofocus="" type="email" name = "email">
+            <input class="form-control" placeholder="Password" required="" type="password" name="password">
+            <button class="btn btn-lg btn-success btn-block" type="submit"><b>Sign In</b></button>
+            <label class="checkbox" style="float:left">
+                <input value="remember-me" type="checkbox"> Remember me
+            </label>
+        </div>
+        <p class="center">
+            <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+        </p>
+
+        <p class="center">
+            <a id="link_signup" href="/signup">Create Account</a>
+        </p>
+    </form>
+</div>
+
+<% include _footer %>
+
+</body>
+
+</html>
+
+

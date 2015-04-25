@@ -4,7 +4,7 @@ module.exports = function(app) {
         if (req.isAuthenticated()){
             res.redirect('/account', {currentPage: ''});
         }else{
-            res.render('login.ejs', { message: req.flash('loginMessage') }); 
+            res.render('login.ejs', { message: "test"});
         }
 	});
 	app.get('/signup',function (req, res) {
@@ -31,11 +31,6 @@ module.exports = function(app) {
 		req.logout();
 		res.redirect('/login');
 	});
-	app.post('/login', passport.authenticate('local-login', {
-		successRedirect : '/home',
-		failureRedirect : '/login',
-		failureFlash : true
-	}));
 
 	app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
@@ -47,16 +42,6 @@ module.exports = function(app) {
     	})
     );
 
-    //connects routes
-    app.get('/connect/local', function(req, res) {
-    	res.render('connect_local.ejs', { message: req.flash('loginMessage') });
-    });
-    app.post('/connect/local', passport.authenticate('local-signup', {
-		successRedirect : '/account', // redirect to the secure profile section
-		failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-		failureFlash : true // allow flash messages
-	}));
-
     app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
     app.get('/connect/google/callback',
     	passport.authorize('google', {
@@ -65,16 +50,6 @@ module.exports = function(app) {
     	})
     );
 
-    //unlink accounts
-    app.get('/unlink/local', function(req, res) {
-        var account = req.user;
-        account.local.email = undefined;
-        account.local.password = undefined;
-        account.save(function(err) {
-            res.redirect('/account');
-        });
-    });
-
     app.get('/unlink/google', function(req, res) {
         var account = req.user;
         account.google.token = undefined;
@@ -82,8 +57,6 @@ module.exports = function(app) {
            res.redirect('/account');
         });
     });
-
-
 };
 
 function isLoggedIn(req, res, next) {
