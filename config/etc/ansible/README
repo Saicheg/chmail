@@ -1,0 +1,9 @@
+requirements:
+
+1. ansible
+sudo easy_install pip
+sudo pip install ansible
+sudo pip install ansible --upgrade
+
+2. usage
+ansible-playbook prepare_env.yml -i hosts
