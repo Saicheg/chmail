@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "chmail",
+    "connector": "memory"
+  },
+  "accountDs": {
+    "name": "accountDs",
+    "connector": "mongodb",
+    "host": "demo.chmail.com",
+    "port": 27017,
+    "database": "chmail",
+    "username": "admin",
+    "password": "L00pBack"
+  }
+}
