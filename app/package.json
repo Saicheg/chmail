@@ -25,7 +25,7 @@
     "passport-oauth2": "^1.1.2",
     "passport-twitter": "~1.0.2",
     "serve-favicon": "^2.0.1",
-    "node-gmail-api":"^0.3.1"
+    "googleapis":"^2.0.2"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.2.9",
