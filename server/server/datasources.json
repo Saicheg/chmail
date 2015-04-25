@@ -1,13 +1,6 @@
 {
-  "memorydb": {
-    "name": "chmail_memory",
+  "db": {
+    "name": "db",
     "connector": "memory"
-  },
-  "chmail": {
-    "name": "chmail",
-    "connector": "mongodb",
-    "host": "localhost",
-    "port": 27017,
-    "database": "chmail"
   }
 }

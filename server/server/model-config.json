@@ -1,33 +1,37 @@
 {
   "_meta": {
     "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "./node_modules/loopback-component-passport/lib/models"
     ]
   },
-  "User": {
-    "dataSource": "memorydb"
+  "user": {
+    "dataSource": "db",
+    "public": true
   },
-  "AccessToken": {
-    "dataSource": "memorydb",
-    "public": false
+  "accessToken": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "db",
+    "public": true
   },
   "ACL": {
-    "dataSource": "memorydb",
+    "dataSource": "db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "memorydb",
+    "dataSource": "db",
     "public": false
   },
   "Role": {
-    "dataSource": "memorydb",
+    "dataSource": "db",
     "public": false
-  },
-  "Account": {
-    "dataSource": "chmail",
-    "public": true
   }
 }
