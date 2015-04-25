@@ -7,26 +7,12 @@ var loopbackPassport = require('loopback-component-passport');
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
 var passportConfigurator = new PassportConfigurator(app);
 
-/*
- * body-parser is a piece of express middleware that
- *   reads a form's input and stores it as a javascript
- *   object accessible through `req.body`
- *
- */
 var bodyParser = require('body-parser');
 
-/**
- * Flash messages for passport
- *
- * Setting the failureFlash option to true instructs Passport to flash an
- * error message using the message given by the strategy's verify callback,
- * if any. This is often the best approach, because the verify callback
- * can make the most accurate determination of why authentication failed.
- */
-var flash      = require('express-flash');
+var flash = require('express-flash');
 
-// attempt to build the providers/passport config
 var config = {};
+
 try {
 	config = require('../providers.json');
 } catch (err) {
@@ -68,6 +54,7 @@ app.use(loopback.session({
 	saveUninitialized: true,
 	resave: true
 }));
+
 passportConfigurator.init();
 
 // We need flash messages to see passport errors
@@ -78,11 +65,13 @@ passportConfigurator.setupModels({
 	userIdentityModel: app.models.userIdentity,
 	userCredentialModel: app.models.userCredential
 });
+
 for (var s in config) {
 	var c = config[s];
 	c.session = c.session !== false;
 	passportConfigurator.configureProvider(s, c);
 }
+
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 app.get('/', function (req, res, next) {
