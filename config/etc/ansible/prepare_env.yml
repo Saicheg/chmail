@@ -5,13 +5,16 @@
   tasks:
   - user: name=rgu comment="Ruby Guru" #group=sudo
   - name: install software
-    apt: pkg=mongodb,mc,nodejs,build-essential,npm,nginx,htop state=latest
+    apt: pkg=mongodb,mc,nodejs,build-essential,npm,nginx,htop,git state=latest
     notify:
     - restart mongodb
     - restart nginx
   - name: ensure mongodb and nginx are running (and enable it at boot)
     service: name=mongodb state=started enabled=yes
     service: name=nginx state=started enabled=yes
+#  - shell: mv /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default_backup
+  - shell: mkdir -p /var/www/volition/current/public
+  - git: repo=ssh://git@github.com:Saicheg/chmail.git dest=/tmp #accept_hostkey=true
   handlers:
     - name: restart mongodb
       service: name=mongodb state=restarted
