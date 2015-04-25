@@ -3,6 +3,18 @@
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
+    "google_id" : {
+      "type": "string"
+    },
+    "img" : {
+       "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "token" : {
+      "type" : "string"
+    },
     "email": {
       "type": "string"
     },
