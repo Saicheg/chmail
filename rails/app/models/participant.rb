@@ -1,8 +1,8 @@
-class User
+class Participant
   include Mongoid::Document
 
   field :email, type: String
   field :name, type: String
 
-  has_one :participant
+  belongs_to :user
 end
