@@ -1,30 +1,46 @@
-nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+nav.navbar.navbar-default.navbar-fixed-top(role="snavigation")
   .container
     .navbar-header
-      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+      button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
         span.sr-only Toggle navigation
+
         span.icon-bar
+
         span.icon-bar
+
         span.icon-bar
-      a.navbar-brand(href='/') LoopBack
+
+      a.navbar-brand(href="/") LoopBack
+
     #navbar.navbar-collapse.collapse
       if user
         //- User *is* logged In
+
         ul.nav.navbar-nav.navbar-right
           li
-            a(href='/explorer') API Explorer
-          li(class=url=='/auth/account'?'active':undefined)
-            a(href='/auth/account') View Account
+            a(href="/explorer") API Explorer
+
+          - active_class = url == "/auth/account" && "active"
+          li(class=active_class)
+            a(href="/auth/account") View Account
+
           li
-            a(href='/auth/logout') Log Out
+            a(href="/auth/logout") Log Out
+
       else
         //- User is *not* Logged In
         ul.nav.navbar-nav.navbar-right
-          li(class=url=='/'?'active':undefined)
-            a(href='/') Home
+          - active_class = url == "/" && "active"
+          li(class=active_class)
+            a(href="/") Home
+
           li
-            a(href='/explorer') API Explorer
-          li(class=url=='/login'?'active':undefined)
-            a(href='/login') Log in
-          li(class=url=='/signup'?'active':undefined)
-            a(href='/signup') Sign Up
+            a(href="/explorer") API Explorer
+
+          - active_class = url == "/login" && "active"
+          li(class=active_class)
+            a(href="/login") Log in
+
+          - active_class = url == "/signup" && "active"
+          li(class=active_class)
+            a(href="/signup") Sign Up
