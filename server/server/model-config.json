@@ -8,26 +8,26 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "memorydb"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "memorydb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "memorydb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "memorydb",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "memorydb",
     "public": false
   },
   "Account": {
-    "dataSource": "accountDs",
+    "dataSource": "chmail",
     "public": true
   }
 }
