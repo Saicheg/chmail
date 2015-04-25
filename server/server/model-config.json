@@ -29,5 +29,9 @@
   "Account": {
     "dataSource": "chmail",
     "public": true
+  },
+  "Thread": {
+    "dataSource": "chmail",
+    "public": true
   }
 }
