@@ -7,10 +7,34 @@ var loopbackPassport = require('loopback-component-passport');
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
 var passportConfigurator = new PassportConfigurator(app);
 
+/*
+ * body-parser is a piece of express middleware that
+ *   reads a form's input and stores it as a javascript
+ *   object accessible through `req.body`
+ *
+ */
 var bodyParser = require('body-parser');
 
+/**
+ * Flash messages for passport
+ *
+ * Setting the failureFlash option to true instructs Passport to flash an
+ * error message using the message given by the strategy's verify callback,
+ * if any. This is often the best approach, because the verify callback
+ * can make the most accurate determination of why authentication failed.
+ */
+var flash      = require('express-flash');
+/**
+ * Flash messages for passport
+ *
+ * Setting the failureFlash option to true instructs Passport to flash an
+ * error message using the message given by the strategy's verify callback,
+ * if any. This is often the best approach, because the verify callback
+ * can make the most accurate determination of why authentication failed.
+ */
 var flash = require('express-flash');
 
+// attempt to build the providers/passport config
 var config = {};
 
 try {
@@ -108,6 +132,10 @@ app.use(loopback.urlNotFound());
 // The ultimate error handler.
 app.use(loopback.errorHandler());
 
+require("./boot/thread_api")(app);
+app.use('/mythreads/:id', function(req, res, next) {
+	res.json({ running: true });
+});
 app.start = function() {
 	// start the web server
 	return app.listen(function() {

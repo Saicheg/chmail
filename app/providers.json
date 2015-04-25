@@ -18,7 +18,7 @@
     "authPath": "/auth/facebook",
     "callbackPath": "/auth/facebook/callback",
     "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
+    "failureRedirect": "/",
     "scope": ["email"],
     "failureFlash": true
   },
@@ -26,14 +26,14 @@
     "provider": "google",
     "module": "passport-google-oauth",
     "strategy": "OAuth2Strategy",
-    "clientID": "279891115125-s3js46hqjlbaod7ndb1t3iqcc390j939.apps.googleusercontent.com",
-    "clientSecret": "Wmrakw7LvInPaJ6RRECOUP4B",
+    "clientID": "279891115125-n6pv7pfnnba9qj7suep5nunssmcbpbll.apps.googleusercontent.com",
+    "clientSecret": "qljaSuq9nFHSwJY7OnCGrtIQ",
     "callbackURL": "/auth/google/callback",
     "authPath": "/auth/google",
     "callbackPath": "/auth/google/callback",
     "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
-    "scope": ["email", "profile"],
+    "failureRedirect": "/",
+    "scope": ["https://mail.google.com/", "profile"],
     "failureFlash": true
   },
   "twitter-login": {
@@ -44,7 +44,7 @@
     "authPath": "/auth/twitter",
     "callbackPath": "/auth/twitter/callback",
     "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
+    "failureRedirect": "/",
     "consumerKey": "{twitter-consumer-key}",
     "consumerSecret": "{twitter-consumer-secret}",
     "failureFlash": true
@@ -58,7 +58,7 @@
     "authPath": "/link/facebook",
     "callbackPath": "/link/facebook/callback",
     "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
+    "failureRedirect": "/",
     "scope": ["email", "user_likes"],
     "link": true,
     "failureFlash": true
@@ -73,7 +73,7 @@
     "authPath": "/link/google",
     "callbackPath": "/link/google/callback",
     "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
+    "failureRedirect": "/",
     "scope": ["email", "profile"],
     "link": true,
     "failureFlash": true
