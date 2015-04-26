@@ -14,6 +14,7 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'mongoid', '~> 4.0.2'
+gem 'google-api-client'
 
 group :development do
   gem 'better_errors'
