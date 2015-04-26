@@ -6,7 +6,7 @@ gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-
+gem 'less-rails'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
@@ -16,6 +16,8 @@ gem 'slim-rails'
 gem 'mongoid', '~> 4.0.2'
 gem 'google-api-client', '~> 0.8.6'
 gem 'pry'
+gem 'therubyracer'
+>>>>>>> 330474469714d7a2a6fa2239d67f47c07074dd0f
 
 group :development do
   gem 'better_errors'

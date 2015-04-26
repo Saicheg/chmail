@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/dima/.rvm/gems/ruby-2.2.2@global/gems/google-api-client-0.8.6/lib/google/api_client/client_secrets.rb @ line 88 Google::APIClient::ClientSecrets#initialize:
+
+     [1;34m84[0m: [32mdef[0m [1;34minitialize[0m(options={})
+     [1;34m85[0m:   [1;34m# Client auth configuration[0m
+     [1;34m86[0m:   @flow = options[[33m:flow[0m] || options.keys.first.to_s || [31m[1;31m'[0m[31mweb[1;31m'[0m[31m[0m
+     [1;34m87[0m:   fdata = options[@flow]
+ =>  [1;34m88[0m:   binding.pry
+     [1;34m89[0m:   @client_id = fdata[[33m:client_id[0m] || fdata[[31m[1;31m"[0m[31mclient_id[1;31m"[0m[31m[0m]
+     [1;34m90[0m:   @client_secret = fdata[[33m:client_secret[0m] || fdata[[31m[1;31m"[0m[31mclient_secret[1;31m"[0m[31m[0m]
+     [1;34m91[0m:   @redirect_uris = fdata[[33m:redirect_uris[0m] || fdata[[31m[1;31m"[0m[31mredirect_uris[1;31m"[0m[31m[0m]
+     [1;34m92[0m:   @redirect_uris ||= [fdata[[33m:redirect_uri[0m] || fdata[[31m[1;31m"[0m[31mredirect_uri[1;31m"[0m[31m[0m]].compact
+     [1;34m93[0m:   @javascript_origins = (
+     [1;34m94[0m:     fdata[[33m:javascript_origins[0m] ||
+     [1;34m95[0m:     fdata[[31m[1;31m"[0m[31mjavascript_origins[1;31m"[0m[31m[0m]
+     [1;34m96[0m:   )
+     [1;34m97[0m:   @javascript_origins ||= [fdata[[33m:javascript_origin[0m] || fdata[[31m[1;31m"[0m[31mjavascript_origin[1;31m"[0m[31m[0m]].compact
+     [1;34m98[0m:   @authorization_uri = fdata[[33m:auth_uri[0m] || fdata[[31m[1;31m"[0m[31mauth_uri[1;31m"[0m[31m[0m]
+     [1;34m99[0m:   @authorization_uri ||= fdata[[33m:authorization_uri[0m]
+    [1;34m100[0m:   @token_credential_uri = fdata[[33m:token_uri[0m] || fdata[[31m[1;31m"[0m[31mtoken_uri[1;31m"[0m[31m[0m]
+    [1;34m101[0m:   @token_credential_uri ||= fdata[[33m:token_credential_uri[0m]
+    [1;34m102[0m: 
+    [1;34m103[0m:   [1;34m# Associated token info[0m
+    [1;34m104[0m:   @access_token = fdata[[33m:access_token[0m] || fdata[[31m[1;31m"[0m[31maccess_token[1;31m"[0m[31m[0m]
+    [1;34m105[0m:   @refresh_token = fdata[[33m:refresh_token[0m] || fdata[[31m[1;31m"[0m[31mrefresh_token[1;31m"[0m[31m[0m]
+    [1;34m106[0m:   @id_token = fdata[[33m:id_token[0m] || fdata[[31m[1;31m"[0m[31mid_token[1;31m"[0m[31m[0m]
+    [1;34m107[0m:   @expires_in = fdata[[33m:expires_in[0m] || fdata[[31m[1;31m"[0m[31mexpires_in[1;31m"[0m[31m[0m]
+    [1;34m108[0m:   @expires_at = fdata[[33m:expires_at[0m] || fdata[[31m[1;31m"[0m[31mexpires_at[1;31m"[0m[31m[0m]
+    [1;34m109[0m:   @issued_at = fdata[[33m:issued_at[0m] || fdata[[31m[1;31m"[0m[31missued_at[1;31m"[0m[31m[0m]
+    [1;34m110[0m: [32mend[0m
+
