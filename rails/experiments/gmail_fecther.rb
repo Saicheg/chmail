@@ -36,13 +36,10 @@ if file_storage.authorization.nil?
 else
   client.authorization = file_storage.authorization
 end
-
 gmail = client.discovered_api('gmail', 'v1')
-
 file_storage = Google::APIClient::FileStorage.new(CREDENTIAL_STORE_FILE)
 file_storage.write_credentials(user_credentials)
 
-result = client.execute(:api_method => gmail.users.messages.list,
-                              :parameters => {userId: 'me'},
-                              :authorization => user_credentials)
+client.authorization.access_token = user_credentials['access_token']
+result = client.execute(:api_method => gmail.users.messages.list, :parameters => {userId: 'me'}, authorization: user_credentials)
 puts result.data.to_json
