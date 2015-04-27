@@ -56,8 +56,7 @@ class GoogleAuthClient
   # @return [Signet::OAuth2::Client]
   #  Authorization instance, nil if user cancelled.
   def authorize(storage=nil)
-    auth = @authorization
-
+    auth = @authorization    
     server = WEBrick::HTTPServer.new(
       :Port => @port,
       :BindAddress => @host,
@@ -82,10 +81,7 @@ class GoogleAuthClient
     ensure
       server.shutdown
     end
-    if @authorization.access_token
-      if storage.respond_to?(:write_credentials)
-        storage.write_credentials(@authorization)
-      end
+    if @authorization.access_token      
       return @authorization
     else
       return nil

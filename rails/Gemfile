@@ -17,7 +17,6 @@ gem 'mongoid', '~> 4.0.2'
 gem 'google-api-client', '~> 0.8.6'
 gem 'pry'
 gem 'therubyracer'
->>>>>>> 330474469714d7a2a6fa2239d67f47c07074dd0f
 
 group :development do
   gem 'better_errors'

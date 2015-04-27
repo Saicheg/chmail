@@ -10,7 +10,7 @@ class GmailClient
 		)
 		@gmail = @client.discovered_api('gmail', 'v1')
 				# Load client secrets from your client_secrets.json.
-		flow = GoogleAuthClient.new(options)
+		@flow = GoogleAuthClient.new(options)
 		saved_credentials = {
 			:access_token => "ya29.YQHTd7ODdZ-LHi5d2Pa2zZ_7PHr_EuTVPfCXMt51tZyl8jl-MpdSNad5HcPExYYNP06BtDosOU29tA",
 			:authorization_uri => "https://accounts.google.com/o/oauth2/auth",
@@ -21,16 +21,27 @@ class GmailClient
 			:scope => ["https://mail.google.com/", "profile"],
 			:token_credential_uri => 'https://accounts.google.com/o/oauth2/token'
 		}
-		@client.authorization = !saved_credentials ? flow.authorize : Signet::OAuth2::Client.new(saved_credentials)
+		@client.authorization = !saved_credentials ? @flow.authorize : Signet::OAuth2::Client.new(saved_credentials)
+		#todo save authorization to db
 	end 
-	#todo save authorization to db
+	
 
 	def gmail_chats
-		result = @client.execute(
-		  :api_method => @gmail.users.threads.list,
-		  :parameters => {'userId' => 'me'}
-		)
-		return result.data
+		begin
+			result = @client.execute(
+				:api_method => @gmail.users.threads.list,
+				:parameters => {'userId' => 'me'}
+			)
+			return result.data
+		rescue ArgumentError => e			
+			@client.authorization = @flow.authorize
+			#todo save authorization to db
+			result = @client.execute(
+			  	:api_method => @gmail.users.threads.list,
+			  	:parameters => {'userId' => 'me'}
+			)
+			return result.data
+		end		
 	end
 
 end

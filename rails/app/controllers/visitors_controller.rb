@@ -12,6 +12,5 @@ class VisitorsController < ApplicationController
 			:host => 'localhost',
 			:port => 3000
 		}).gmail_chats.to_hash["threads"]
-		binding.pry
 	end
 end
