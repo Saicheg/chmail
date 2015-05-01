@@ -5,4 +5,5 @@ class User
   field :name, type: String
 
   has_one :participant
+  has_one :auth
 end

@@ -64,15 +64,14 @@ class GoogleAuthClient
       :AccessLog => []
     )
     begin
-      trap("INT") { server.shutdown }
-
-      server.mount_proc '/' do |req, res|
+      server.mount_proc '/auth/google/callback' do |req, res|
         auth.code = req.query['code']
         if auth.code
           auth.fetch_access_token!
         end
         res.status = WEBrick::HTTPStatus::RC_ACCEPTED
         res.body = RESPONSE_BODY
+        @authorization = auth
         server.stop
       end
 
@@ -81,7 +80,7 @@ class GoogleAuthClient
     ensure
       server.shutdown
     end
-    if @authorization.access_token      
+    if @authorization.access_token
       return @authorization
     else
       return nil
