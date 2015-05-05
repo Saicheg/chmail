@@ -45,6 +45,7 @@ GEM
     autoprefixer-rails (5.1.11)
       execjs
       json
+    bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -68,6 +69,13 @@ GEM
     connection_pool (2.2.0)
     daemons (1.2.2)
     debug_inspector (0.0.2)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -100,6 +108,7 @@ GEM
       haml (>= 3.0)
       nokogiri
       ruby_parser
+    hashie (3.4.1)
     high_voltage (2.3.0)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
@@ -151,11 +160,28 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.11.0)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-google-oauth2 (0.2.6)
+      omniauth (> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth2 (1.3.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
     optionable (0.2.0)
     origin (2.1.1)
+    orm_adapter (0.5.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -199,6 +225,8 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     ref (1.0.5)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     retriable (1.4.1)
     ruby_parser (3.6.6)
       sexp_processor (~> 4.1)
@@ -255,6 +283,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -268,6 +298,7 @@ DEPENDENCIES
   better_errors
   bootstrap-sass
   coffee-rails (~> 4.1.0)
+  devise
   google-api-client (~> 0.8.6)
   haml2slim
   high_voltage
@@ -276,6 +307,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mongoid (~> 4.0.2)
+  omniauth-google-oauth2
   pry
   pry-rails
   pry-rescue
