@@ -19,6 +19,9 @@ gem 'pry'
 gem 'therubyracer'
 gem 'devise'
 gem "omniauth-google-oauth2"
+gem 'sinatra'
+gem 'sidekiq', '~> 3.2.5'
+gem 'sidekiq-failures', '~> 0.4.3'
 
 group :development do
   gem 'better_errors'

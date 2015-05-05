@@ -6,6 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       update_user_credentials
     else
       create_user
+      fetch_user_threads
     end
 
     sign_in(user)
@@ -42,6 +43,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user.update_attributes! token: google_data.credentials.token,
                             refresh_token: google_data.credentials.refresh_token,
                             expires_at:  Time.at(google_data.credentials.expires_at)
+  end
+
+
+  def fetch_user_threads
+    MailFetchWorker.perform_async(user.id)
   end
 
 end
