@@ -17,6 +17,8 @@ gem 'mongoid', '~> 4.0.2'
 gem 'google-api-client', '~> 0.8.6'
 gem 'pry'
 gem 'therubyracer'
+gem 'devise'
+gem "omniauth-google-oauth2"
 
 group :development do
   gem 'better_errors'
