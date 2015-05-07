@@ -1,0 +1,10 @@
+- @chat.messages.each do |message|
+  div style='border: 1px solid black; padding: 30px; margin-bottom: 20px;'
+    p
+      | From: #{message.from}
+    p
+      | To: #{message.to}
+    p
+      | Subject: #{message.subject}
+    p
+      == message.text
