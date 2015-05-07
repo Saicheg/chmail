@@ -29,44 +29,18 @@ class GmailClient
     response.data.to_hash
   end
 
-  # def send_mail(params)
-  #   encoded_body = Base64.encode64(params[:body])
-  #   msg = Mail.new
-  #   msg.date = Time.now
-  #   msg.subject = 'Test Subject'
-  #   msg.body = params[:body]
-  #   msg.from = 'vladimir.hudnitsky@gmail.com'
-  #   msg.to   = 'saicheg@gmail.com'
-  #   begin
-  #     result = @client.execute(
-  #         :api_method => @gmail.users.messages.to_h['gmail.users.messages.send'],
-  #         :body_object => {
-  #             :raw => Base64.urlsafe_encode64(msg.to_s)
-  #         },
-  #         :parameters => {
-  #             :userId => 'me',
-  #         }
-  #     )
-  #     return result.data
-  #   rescue ArgumentError => e
-  #     @client.authorization = @flow.authorize
-  #     auth = Auth.new(
-  #         :access_token => @client.authorization.access_token,
-  #         :id_token => @client.authorization.id_token,
-  #         :code => @client.authorization.code
-  #     )
-  #     auth.upsert
-  #     result = @client.execute(
-  #         :api_method => @gmail.users.messages.to_h['gmail.users.messages.send'],
-  #         :body_object => {
-  #             :raw => Base64.urlsafe_encode64(msg.to_s)
-  #         },
-  #         :parameters => {
-  #             :userId => 'me',
-  #         }
-  #     )
-  #     return result.data
-  #   end
-  # end
+  def send_mail(params)
+    encoded_body = Base64.encode64(params[:body])
+    msg = Mail.new
+    msg.date = Time.now
+    msg.subject = params[:subject]
+    msg.body = params[:body]
+    msg.from = params[:from]
+    msg.to   = params[:to]    
+    response = @client.execute api_method: @gmail.users.messages.to_h['gmail.users.messages.send'],
+                            body_object: {raw: Base64.urlsafe_encode64(msg.to_s)},
+                            parameters: {:userId => 'me'}    
+    response.data.to_hash      
+  end
 
 end
