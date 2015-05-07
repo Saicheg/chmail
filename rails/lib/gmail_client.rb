@@ -22,11 +22,24 @@ class GmailClient
     @client.authorization = authorize
   end
 
-  def gmail_chats
-    response = @client.execute api_method: @gmail.users.threads.list,
-                               parameters: {'userId' => 'me'}
+  def chats(page_token = nil)
+    params =  {'userId' => 'me'}
 
-    response.data.to_hash
+    params['pageToken'] = page_token if page_token.present?
+
+    response = @client.execute api_method: @gmail.users.threads.list,
+                               parameters: params
+    data = response.data.to_hash
+
+    [data["threads"], data["nextPageToken"]]
+  end
+
+  def messages(thread_id)
+    response = @client.execute api_method: @gmail.users.threads.get,
+                               parameters: { 'userId' => 'me', 'id' => thread_id }
+
+
+    response.data.to_hash["messages"]
   end
 
   # def send_mail(params)
