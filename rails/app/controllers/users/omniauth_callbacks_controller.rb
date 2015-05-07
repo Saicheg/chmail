@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     sign_in(user)
 
-    redirect_to root_url
+    redirect_to chats_url
   end
 
   def user

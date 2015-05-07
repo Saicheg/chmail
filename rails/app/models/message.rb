@@ -8,6 +8,8 @@ class Message
   field :text,      type: String
   field :send_date, type: DateTime
 
+  embedded_in :chat
+
   has_one :paricipant
   has_one :user
 end
